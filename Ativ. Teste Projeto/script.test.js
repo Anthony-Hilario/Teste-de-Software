@@ -1,5 +1,5 @@
 const { default: expect } = require('expect');
-const {VerificarAno} = require('./script');
+const { VerificarAno } = require('./script');
 
 it('Ano valido - homem', () => {
     expect(VerificarAno(2000, 'homem')).toBe('Detectamos um(a) homem com 24 anos de idade');
@@ -9,8 +9,12 @@ it('Ano valido - mulher', () => {
     expect(VerificarAno(2000, 'mulher')).toBe('Detectamos um(a) mulher com 24 anos de idade');
 })
 
-it('Ano inválido - ano a frente ou atual', () => {
+it('Ano inválido - ano a frente', () => {
     expect(VerificarAno(2025, 'homem')).toBe('Valor inválido, o ano está a frente ou corresponde o atual');
+})
+
+it('Ano inválido - ano atual', () => {
+    expect(VerificarAno(2024, 'homem')).toBe('Valor inválido, o ano está a frente ou corresponde o atual');
 })
 
 it('Ano inválido - ano vazio', () => {
@@ -63,4 +67,8 @@ it('Ano valido - Valor limite ', () => {
 
 it('Ano valido - Letra maiúscula ', () => {
     expect(VerificarAno(2000, 'MUlher')).toBe('Detectamos um(a) mulher com 24 anos de idade');
+})
+
+it('Nome invalido de genero', () => {
+    expect(VerificarAno(2000, 'macho')).toBe('Nome para genero invalido, utilize apenas homem ou mulher');
 })

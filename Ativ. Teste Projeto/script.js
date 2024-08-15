@@ -9,6 +9,9 @@ function VerificarAno(ano, genre) {
     if(typeof genero == 'string'){
         genero = minusc;
     }
+
+    if(genero !== 'homem' && genero !== 'mulher') return 'Nome para genero invalido, utilize apenas homem ou mulher';
+
     if (anoNascimento == '') {
         let resposta = 'Digite um ano válido';
         return resposta;
@@ -67,4 +70,4 @@ function VerificarAno(ano, genre) {
 
 }
 
-module.exports = {VerificarAno};
+module.exports = { VerificarAno };
